@@ -8,18 +8,7 @@ const headers = {
 
 const STREAMER_USERNAME = SECRET_CONFIG.STREAMER_USERNAME;
 
-/**
- * broadcaster_type
- * created_at
- * description
- * display_name
- * id
- * login
- * offline_image_url
- * profile_image_url
- * type
- * view_count
- */
+// https://dev.twitch.tv/docs/api/reference/#get-users
 var genUserInfoFromNames = (names) => {
     return $.ajax({
         url: `https://api.twitch.tv/helix/users?${names.reduce(
@@ -30,19 +19,17 @@ var genUserInfoFromNames = (names) => {
         headers,
     });
 };
-/**
- * broadcaster_id
- * broadcaster_language
- * broadcaster_login
- * broadcaster_name
- * content_classification_labels
- * delay
- * game_id
- * game_name
- * is_branded_content
- * tags
- * title
- */
+
+// https://dev.twitch.tv/docs/api/reference/#get-users
+var genChannelInfoFromName = (name) => {
+    return $.ajax({
+        url: `https://api.twitch.tv/helix/users?login=${name}`,
+        type: "get",
+        headers,
+    });
+};
+
+// https://dev.twitch.tv/docs/api/reference/#get-channel-information
 var genChannelInfoFromIds = (ids) => {
     return $.ajax({
         url: `https://api.twitch.tv/helix/channels?${ids.reduce(
@@ -54,25 +41,19 @@ var genChannelInfoFromIds = (ids) => {
     });
 };
 
-var genChannelStreamsFromName = (name) => {
-    return $.ajax({
-        url: `https://api.twitch.tv/helix/streams?user_login=${name}`,
-        type: "get",
-        headers,
-    });
-};
-
-var genChannelInfoFromName = (name) => {
-    return $.ajax({
-        url: `https://api.twitch.tv/helix/users?login=${name}`,
-        type: "get",
-        headers,
-    });
-};
-
+// https://dev.twitch.tv/docs/api/reference/#get-channel-information
 var genChannelInfoFromId = (id) => {
     return $.ajax({
         url: `https://api.twitch.tv/helix/channels?broadcaster_id=${id}`,
+        type: "get",
+        headers,
+    });
+};
+
+// https://dev.twitch.tv/docs/api/reference/#get-streams
+var genChannelStreamsFromName = (name) => {
+    return $.ajax({
+        url: `https://api.twitch.tv/helix/streams?user_login=${name}`,
         type: "get",
         headers,
     });
