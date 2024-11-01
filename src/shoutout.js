@@ -137,7 +137,7 @@ export function autoShoutout(client, data) {
         if (Object.keys(oshimarks).includes(username)) {
             setTimeout(() => {
                 client.say(data.channel, "!so " + username);
-            }, 5000);
+            }, 5000); // add an artificial delay
         }
     }
 }
