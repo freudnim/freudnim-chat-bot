@@ -7,6 +7,8 @@ const headers = {
 };
 
 const STREAMER_USERNAME = SECRET_CONFIG.STREAMER_USERNAME;
+const AUTO_SHOUTOUT_DELAY_MS = 5000;
+const MANUAL_SHOUTOUT_DELAY_MS = 500;
 
 // https://dev.twitch.tv/docs/api/reference/#get-users
 var genUserInfoFromNames = (names) => {
@@ -123,7 +125,7 @@ export function handleMultiShoutout(client, channel, message, username, users) {
                 () => {
                     client.say(channel, shoutoutString);
                 },
-                users < 5 ? 200 : 500
+                MANUAL_SHOUTOUT_DELAY_MS
             );
         });
     });
@@ -137,7 +139,7 @@ export function autoShoutout(client, data) {
         if (Object.keys(oshimarks).includes(username)) {
             setTimeout(() => {
                 client.say(data.channel, "!so " + username);
-            }, 5000); // add an artificial delay
+            }, AUTO_SHOUTOUT_DELAY_MS);
         }
     }
 }
