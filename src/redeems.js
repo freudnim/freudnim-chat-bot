@@ -1,4 +1,5 @@
 const Redeems = Object.freeze({
+    // To find the redeem reward id, log tags["custom-reward-id"]
     ANNOUNCE_ME: "981dcd6d-9a36-478a-810d-fcb35d3fc1f5",
     SUB_GACHA: "bcd8ecb6-9ea1-44cd-96d5-fabe77b3a64e",
 });
