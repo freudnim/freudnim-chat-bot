@@ -5,7 +5,7 @@ import { handleMultiShoutout, autoShoutout, shoutout } from "./src/shoutout.js";
 import { SECRET_CONFIG } from "./../config.js";
 
 const client = new tmi.Client({
-  options: { debug: true },
+  options: { debug: true, skipUpdatingEmotesets: true },
   identity: {
     username: SECRET_CONFIG.TWITCH_BOT_USERNAME,
     password: SECRET_CONFIG.TWITCH_OAUTH_TOKEN,
