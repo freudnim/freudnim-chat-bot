@@ -13,7 +13,9 @@ export function handleRedeems(client, data) {
             if (message.includes("!so freudnim")) {
                 client.say(channel, "Suske");
             } else {
-                client.say(channel, "/announce " + message);
+                // chat commands deprecated through irc - feb 2023 
+                // https://discuss.dev.twitch.com/t/deprecation-of-chat-commands-through-irc/40486
+                // client.say(channel, "/announce " + message); 
                 client.say(channel, message);
             }
             break;
