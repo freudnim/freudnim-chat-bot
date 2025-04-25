@@ -133,7 +133,7 @@ export function handleMultiShoutout(client, channel, message, username, users) {
 }
 
 const chatters = [];
-export function autoShoutout(client, data) {
+export function handleAutoShoutout(client, data) {
     const username = data.senderUsername
     if (!chatters.includes(username)) {
         chatters.push(username);
