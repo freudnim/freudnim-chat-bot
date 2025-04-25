@@ -1,35 +1,4 @@
-const commands = {
-    test: {
-        response: "👽",
-    },
-    raid: {
-        response: [
-            "hello there freudnPeek hello there freudnPeek hello there freudnPeek",
-            "hello there |v ' ) hello there |v ' ) hello there |v ' )",
-        ],
-    },
-    lurk: {
-        response: (data) => {
-            const { channel, senderUsername } = data;
-            const lurkResponse = `/me be safe ${senderUsername} inaPray`;
-            client.say(channel, lurkResponse);
-        }
-    },
-    so: {
-        response: (data) => {
-            const { channel, message, senderUsername, messageArguments: usersToSO } = data;
-            handleMultiShoutout(client, channel, message, senderUsername, usersToSO);
-        }
-    },
-    freud: {
-        response: (data) => {
-            const { channel, senderUsername } = data;
-            shoutout(client, channel, senderUsername);
-        }
-    }
-};
-
-export function handleCommands(client, data) {
+export function handleCommands(client, data, commands) {
     const { channel, message } = data;
 
     const firstWord = message.split(" ")[0];
