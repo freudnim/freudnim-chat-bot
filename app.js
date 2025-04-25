@@ -23,6 +23,9 @@ const commands = {
       "hello there |v ' ) hello there |v ' ) hello there |v ' )",
     ],
   },
+  feeshop: {
+    response: "https://freudnim.co/feeshop"
+  },
   lurk: {
     response: (data) => {
       const { channel, senderUsername } = data;
