@@ -14,7 +14,9 @@ export function handleCommands(client, data, commands) {
             client.say(channel, "/me " + response);
         } else if (Array.isArray(response)) {
             // Send the array of strings as multiple message
-            for (str of response) client.say(channel, str);
+            for (const str of response) client.say(channel, str);
+        } else {
+            console.log('response');
         }
     }
 }

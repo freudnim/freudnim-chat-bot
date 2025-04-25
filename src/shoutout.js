@@ -100,6 +100,7 @@ export function handleMultiShoutout(client, channel, message, username, users) {
     if ((users.includes(STREAMER_USERNAME) && !selfMsg)) {
         users = users.filter(user => user !== STREAMER_USERNAME);
         shoutout(client, channel, username);
+        return;
     }
 
     // Fetch their ids...
